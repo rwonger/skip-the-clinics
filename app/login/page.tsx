@@ -9,6 +9,7 @@ export default function Page() {
   async function login(formData:any) {
     "use server";
     var success = false;
+    debugger;
     const username = formData.get("username");
     const password = formData.get("password");
     const response = await fetch('http://localhost:8000/login', {

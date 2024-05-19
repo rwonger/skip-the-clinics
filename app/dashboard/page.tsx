@@ -1,18 +1,28 @@
 "use client";
-
 import { useState } from 'react';
+import { redirect } from 'next/navigation';
 
 // Dummy data for clinics
 const clinics = [
-  { name: 'Clinic 1', location: 'Location 1', distance: '2 miles', status: 'Waiting' },
-  { name: 'Clinic 2', location: 'Location 2', distance: '5 miles', status: 'Waiting' },
-  { name: 'Clinic 3', location: 'Location 3', distance: '1 mile', status: 'Waiting' },
-  { name: 'Clinic 4', location: 'Location 4', distance: '1 mile', status: 'Not in line' },
+  {name:"Pacific Medical Clinic", location:1, distance: 10},
+  {name:"Simply Wellness Medical", location:2, distance: 9},
+  {name:"Commercial Drive Medical Clinic", location:3, distance: 5},
+  {name:"Fraser Care Clinic", location:4, distance: 13},
+  {name:"Southeast Urgent and Primary Care Centre", location:5, distance: 4},
+  {name:"WELL Health Medical Centres", location:6, distance: 2},
+  {name:"East Van Medical Clinic", location:7, distance: 8},
+  {name:"Care Point Medical Clinic", location:8, distance: 9},
+  {name:"Keefer Walk-in and Medical Clinic", location:9, distance: 4}
   // Add more clinics as needed
 ];
 
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState('');
+  
+  async function getClinics() {
+    const response = await fetch('http://localhost:8000/locations');
+    const clinics = response.json();
+  }
 
   const handleSearch = (event:any) => {
     event.preventDefault();
@@ -21,9 +31,18 @@ export default function Page() {
     // You can navigate to another page or display search results as needed
   };
 
-  const handleJoinWaitlist = () => {
-    // Handle the "Join the Waitlist" action here
-    console.log('Join the Waitlist Now');
+  async function handleJoinWaitlist() {
+    const response = await fetch('http://localhost:8000/enqueue', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        healthNumber: "12345",
+        clinicIds: [1, 2, 3]
+      }),
+    })
+    redirect('/joined');
   };
 
   return (
@@ -40,7 +59,7 @@ export default function Page() {
               {/* <h1 className="text-3xl text-white font-semibold mb-2 p-1">Available Walk-In Clinics Near You</h1> */}
               <img className="rounded-lg" src="/map_pic.png"></img>
             </div>
-            {/* <form onSubmit={handleSearch}>
+            {/* <form action={getClinics}>
             <div className="flex justify-center items-center">
               <input
                 type="text"
@@ -74,8 +93,8 @@ export default function Page() {
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="text-lg font-semibold">{clinic.name}</h3>
-                    <p>{clinic.location}</p>
-                    <p>{clinic.distance}</p>
+                    <p>#{clinic.location}</p>
+                    <p>{clinic.distance} km away </p>
                   </div>
                   <button
                     className={`px-2 py-1 text-sm rounded ${clinic.status === 'Waiting' ? 'bg-red-500 text-white' : 'bg-gray-500 text-white'}`}
