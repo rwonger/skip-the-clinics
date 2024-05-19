@@ -23,7 +23,7 @@ export default function Page() {
                     <h2>Welcome to SkipToClinic</h2>
                     <p>Don't have an account?</p>
                     <Link
-                      href="/sign-in"
+                      href="/sign-up"
                       className="btn btn-white btn-outline-white">
                       <span>Sign Up</span>
                     </Link>

@@ -75,9 +75,16 @@ export default function Page() {
                                                     <label className="label" htmlFor="name">Personal Health Number</label>
                                                     <input type="text" className="form-control" placeholder="" required />
                                                 </div>
+                                                {/* replace with submit button for form functionality */}
+                                                {/* <div className="form-group">
+                      <button type="submit" className="form-control btn btn-primary submit px-3">Sign In</button>
+                    </div> */}
                                                 <div className="form-group mt-4">
-                                                    <button type="submit" className="form-control btn btn-primary submit px-3">Create Account</button>
-                                                </div>
+                                                    <Link
+                                                        href="/dashboard"
+                                                        className="form-control btn btn-primary submit px-3">
+                                                        <span>Sign In</span>
+                                                    </Link></div>
 
                                             </form>
                                         </div>
