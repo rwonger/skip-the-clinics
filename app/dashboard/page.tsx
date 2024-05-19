@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
 // Dummy data for clinics
 const clinics = [
@@ -76,12 +77,11 @@ export default function Page() {
               </button>
             </div>
           </form> */}
-            <button
-              onClick={handleJoinWaitlist}
-              className="mt-4 p-2 w-full font-semibold bg-clinicCustomColor-400 text-white rounded-md hover:bg-orange-500 transition duration-300"
-            >
-              Join the Waitlist Now
-            </button>
+                    <Link href="/dashboard/queue-status">
+          <button className="mt-4 p-2 w-full font-semibold bg-clinicCustomColor-400 text-white rounded-md hover:bg-orange-500 transition duration-300">
+            Join the Waitlist Now
+          </button>
+        </Link>
           </div>
 
           <div className='mr-auto px-3 pb-3'>

@@ -5,6 +5,7 @@ import {
   HomeIcon,
   DocumentDuplicateIcon,
   UserIcon,
+  ForwardIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -15,6 +16,7 @@ import clsx from 'clsx';
 const links = [
   { name: 'Clinics', href: '/dashboard', icon: HomeIcon },
   { name: 'Profile', href: '/dashboard/customers', icon: UserIcon },
+  { name: 'Queue Status', href: '/dashboard/queue-status', icon: ForwardIcon },
 ];
 
 export default function NavLinks() {
