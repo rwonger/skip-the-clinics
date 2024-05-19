@@ -71,7 +71,7 @@ export default function Page() {
                         {/* replace with submit button for form functionality */}
                         <div className="d-flex justify-content-end mx-2">
                           <Link
-                            href="/sign-in-next"
+                            href="/sign-up-next"
                             className="btn btn-primary px-4">
                             <ArrowRightIcon className="w-5 md:w-6" />
                           </Link>
