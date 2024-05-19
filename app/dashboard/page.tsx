@@ -2,6 +2,15 @@
 
 import { useState } from 'react';
 
+// Dummy data for clinics
+const clinics = [
+  { name: 'Clinic 1', location: 'Location 1', distance: '2 miles', status: 'Waiting' },
+  { name: 'Clinic 2', location: 'Location 2', distance: '5 miles', status: 'Waiting' },
+  { name: 'Clinic 3', location: 'Location 3', distance: '1 mile', status: 'Waiting' },
+  { name: 'Clinic 4', location: 'Location 4', distance: '1 mile', status: 'Not in line' },
+  // Add more clinics as needed
+];
+
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -10,6 +19,11 @@ export default function Page() {
     // Process the search query here
     console.log('Searching for:', searchQuery);
     // You can navigate to another page or display search results as needed
+  };
+
+  const handleJoinWaitlist = () => {
+    // Handle the "Join the Waitlist" action here
+    console.log('Join the Waitlist Now');
   };
 
   return (
@@ -35,14 +49,30 @@ export default function Page() {
               </button>
             </div>
           </form>
+          <button
+            onClick={handleJoinWaitlist}
+            className="mt-4 p-2 w-full bg-clinicCustomColor-400 text-white rounded-md hover:bg-orange-500 transition duration-300"
+          >
+            Join the Waitlist Now
+          </button>
         </div>
-        <div className="text-left">
-          <h2 className="text-xl font-bold mb-2">Nearby Clinics</h2>
-          <ul>
-            <li>Clinic 1</li>
-            <li>Clinic 2</li>
-            {/* Add more clinic items */}
-          </ul>
+        <div className="overflow-y-auto h-96 w-full border border-gray-200 p-4 rounded-md">
+          {clinics.map((clinic, index) => (
+            <div key={index} className="border border-gray-300 rounded-md p-4 mb-4 shadow-md relative">
+              <div className="flex justify-between items-center">
+                <div>
+                  <h3 className="text-lg font-semibold">{clinic.name}</h3>
+                  <p>{clinic.location}</p>
+                  <p>{clinic.distance}</p>
+                </div>
+                <button
+                  className={`px-2 py-1 text-sm rounded ${clinic.status === 'Waiting' ? 'bg-red-500 text-white' : 'bg-gray-500 text-white'}`}
+                >
+                  {clinic.status}
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
