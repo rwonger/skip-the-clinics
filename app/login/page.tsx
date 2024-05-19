@@ -45,9 +45,17 @@ export default function Page() {
                       <label className="label" htmlFor="password">Password</label>
                       <input type="password" className="form-control" placeholder="Password" required />
                     </div>
-                    <div className="form-group">
+                    {/* replace with submit button for form functionality */}
+                    {/* <div className="form-group">
                       <button type="submit" className="form-control btn btn-primary submit px-3">Sign In</button>
-                    </div>
+                    </div> */}
+                    <div className="form-group mt-4">
+                          <Link
+                            href="/dashboard"
+                            className="form-control btn btn-primary submit px-3">
+                              <span>Sign In</span>
+                          </Link>
+                        </div>
                   </form>
                 </div>
               </div>

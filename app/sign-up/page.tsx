@@ -38,7 +38,6 @@ export default function Page() {
                       </li>
                     </ul>
                     
-                    {/* <a href="#" className="btn btn-white btn-outline-white">Sign Up</a> */}
                   </div>
                 </div>
                 {/* <div className="login-wrap p-4 p-lg-5"> */}
@@ -69,7 +68,7 @@ export default function Page() {
                           <label className="label" htmlFor="name">E-mail Address</label>
                           <input type="email" className="form-control" placeholder="email@email.com" required />
                         </div>
-
+                        {/* replace with submit button for form functionality */}
                         <div className="d-flex justify-content-end mx-2">
                           <Link
                             href="/sign-in-next"
@@ -81,26 +80,6 @@ export default function Page() {
                       </form>
                     </div>
                   </div>
-                  {/* </div> */}
-
-                  {/* <div className="d-flex">
-                  <div className="w-100">
-                    <h3 className="mb-4">Your Information</h3>
-                  </div>
-                </div>
-                <form action="#" className="signin-form">
-                  <div className="form-group mb-3">
-                    <label className="label" htmlFor="name">Email Address</label>
-                    <input type="text" className="form-control" placeholder="Email" required />
-                  </div>
-                  <div className="form-group mb-3">
-                    <label className="label" htmlFor="password">Password</label>
-                    <input type="password" className="form-control" placeholder="Password" required />
-                  </div>
-                  <div className="form-group">
-                    <button type="submit" className="form-control btn btn-primary submit px-3">Sign In</button>
-                  </div>
-                </form> */}
                 </div>
               </div>
             </div>
@@ -113,9 +92,3 @@ export default function Page() {
   );
 }
 
-{/* <div className="items-center justify-between flex">
-                          <div className="items-center flex">
-                            <input type="checkbox" className="rounded border-gray-300 focus:ring-indigo-500 h-4 w-4 text-indigo-600" />
-                            <label className="ml-2 text-xs text-gray-700">I agree to the terms and conditions</label>
-                          </div>
-                        </div> */}
