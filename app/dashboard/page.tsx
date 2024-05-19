@@ -14,7 +14,7 @@ const clinics = [
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const handleSearch = (event) => {
+  const handleSearch = (event:any) => {
     event.preventDefault();
     // Process the search query here
     console.log('Searching for:', searchQuery);
@@ -27,7 +27,7 @@ export default function Page() {
   };
 
   return (
-    <div>
+    <div className=" flex justify-center items-start p-6 rounded-md">
       {/* <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet" />
@@ -36,7 +36,7 @@ export default function Page() {
         {/* Left Column */}
         <div className="flex flex-col items-center mr-4 ">
           <div className="text-center mb-4">
-            <div className='p-5 rounded-xl bg-gradient-to-r from-clinicCustomColor-400 to-clinicCustomColor-500'>
+            <div className='p-3 rounded-xl bg-gradient-to-r from-clinicCustomColor-400 to-clinicCustomColor-500'>
               {/* <h1 className="text-3xl text-white font-semibold mb-2 p-1">Available Walk-In Clinics Near You</h1> */}
               <img className="rounded-lg" src="/map_pic.png"></img>
             </div>
@@ -59,14 +59,14 @@ export default function Page() {
           </form> */}
             <button
               onClick={handleJoinWaitlist}
-              className="mt-4 p-2 w-full bg-clinicCustomColor-400 text-white rounded-md hover:bg-orange-500 transition duration-300"
+              className="mt-4 p-2 w-full font-semibold bg-clinicCustomColor-400 text-white rounded-md hover:bg-orange-500 transition duration-300"
             >
               Join the Waitlist Now
             </button>
           </div>
 
           <div className='mr-auto px-3 pb-3'>
-            <h3 className='text-lg'><b>3</b> available <b>Walk-In Clinics</b> near me in Vancouver, BC</h3>
+            <h3 className='text-lg'><b>9</b> available <b>Walk-In Clinics</b> near me in Vancouver, BC</h3>
           </div>
           <div className="overflow-y-auto h-96 w-full border border-gray-200 p-4 rounded-md">
             {clinics.map((clinic, index) => (

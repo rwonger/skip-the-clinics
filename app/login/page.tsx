@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 export default function Page() {
-  async function login(formData) {
+  async function login(formData:any) {
     "use server";
     const username = formData.get("username");
     const password = formData.get("password");
