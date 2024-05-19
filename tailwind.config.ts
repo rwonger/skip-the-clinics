@@ -17,6 +17,10 @@ const config: Config = {
           500: '#0070F3',
           600: '#2F6FEB',
         },
+        clinicCustomColor: {
+          400: '#f79659',
+          500: '#f3b455',
+        }
       },
     },
     keyframes: {
