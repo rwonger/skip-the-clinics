@@ -2,11 +2,13 @@ import Link from "next/link";
 import '/app/styles/bootstrap/bootstrap.min.css';
 import LoginForm from "../ui/login-form";
 import { useState } from "react";
+import { redirect } from 'next/navigation';
 
 
 export default function Page() {
   async function login(formData:any) {
     "use server";
+    var success = false;
     const username = formData.get("username");
     const password = formData.get("password");
     const response = await fetch('http://localhost:8000/login', {
@@ -22,12 +24,15 @@ export default function Page() {
     })
     .then(response => {
       if (response.redirected) {
-        window.location.href = response.url;
+        success = true;
       }
     })
     .catch(error => {
       console.log(error);
     });
+    if (success) {
+      redirect('/dashboard');
+    }
   }
 
   return (
