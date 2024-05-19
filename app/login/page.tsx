@@ -1,8 +1,35 @@
 import Link from "next/link";
 import '/app/styles/bootstrap/bootstrap.min.css';
+import LoginForm from "../ui/login-form";
+import { useState } from "react";
 
 
 export default function Page() {
+  async function login(formData) {
+    "use server";
+    const username = formData.get("username");
+    const password = formData.get("password");
+    const response = await fetch('http://localhost:8000/login', {
+      method: 'POST',
+      redirect: 'follow',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password
+      }),
+    })
+    .then(response => {
+      if (response.redirected) {
+        window.location.href = response.url;
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   return (
     <div>
       <meta charSet="utf-8" />
@@ -36,26 +63,26 @@ export default function Page() {
                       <h3 className="mb-4">Sign In</h3>
                     </div>
                   </div>
-                  <form action="#" className="signin-form">
+                  <form action={login} className="signin-form">
                     <div className="form-group mb-3">
                       <label className="label" htmlFor="name">Email Address</label>
-                      <input type="text" className="form-control" placeholder="Email" required />
+                      <input type="text" className="form-control" name="username" placeholder="Username" required />
                     </div>
                     <div className="form-group mb-3">
                       <label className="label" htmlFor="password">Password</label>
-                      <input type="password" className="form-control" placeholder="Password" required />
+                      <input type="password" className="form-control" name="password" placeholder="Password" required />
                     </div>
                     {/* replace with submit button for form functionality */}
-                    {/* <div className="form-group">
+                    <div className="form-group">
                       <button type="submit" className="form-control btn btn-primary submit px-3">Sign In</button>
-                    </div> */}
-                    <div className="form-group mt-4">
+                    </div>
+                    {/* <div className="form-group mt-4">
                           <Link
                             href="/dashboard"
                             className="form-control btn btn-primary submit px-3">
                               <span>Sign In</span>
                           </Link>
-                        </div>
+                        </div> */}
                   </form>
                 </div>
               </div>
