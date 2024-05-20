@@ -1,5 +1,6 @@
-## Next.js App Router Course - Starter
+## SFU Stormhacks 2024 Submissiob
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+Frontend for SkipToClinic, built using react and next.js
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+Requires backend server to run:
+https://github.com/lucastmah/skip-the-clinics-server
