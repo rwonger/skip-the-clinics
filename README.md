@@ -1,4 +1,4 @@
-## SFU Stormhacks 2024 Submissiob
+## SFU Stormhacks 2024 Submission
 
 Frontend for SkipToClinic, built using react and next.js
 
